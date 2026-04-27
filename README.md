@@ -1,2 +1,2 @@
-# book-corner
-A virtual library application made with HTML,CSS &amp; JS.
+# ShireShelf
+A Hobbit-inspired fantasy shelf, made with HTML,CSS &amp; JS.
