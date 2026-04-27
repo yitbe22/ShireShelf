@@ -1,1 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #3A1E0A;
+}
+
+h1{
+    font-family: "Cinzel", serif;
+    color: #daa807;
+    text-align: center;
+    padding: 10px;
+}
+
+.shelf{
+    background: url('/assets/bg-shelf3.png') center/cover no-repeat;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30px;
+    height: 90px;
+    box-shadow:
+        inset -2px 0 4px rgba(0, 0, 0, 0.4),
+        inset 2px 0 4px rgba(255, 255, 255, 0.05); 
+    border-radius: 2px 5px 5px 2px;
+    transform:rotateY(10deg);
+    position: fixed;
+    top: 27%;  
+    left: 40%;
+    z-index: 10;
+}
+
+.book .title {
+    color: #f3e6c6;
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    font-weight: 800;
+    writing-mode: vertical-lr;
+    text-transform: uppercase;
+}
+
+.book .line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #e5c07b;
+}
+
+.book .author {
+    color: #f3e6c6;
+    font-family: "Merriweather", serif;
+    font-size: 8px;
+    padding: 2px 4px;
+}
+
+#addBtn{
+    border-style: none;
+    background: none;
+    color: #daa807;
+    font-size: 2rem;
+
+}
 
