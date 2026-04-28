@@ -1,10 +1,6 @@
 const books = document.querySelectorAll(".book");
 const booksRow = document.getElementById("books-row");
 
-
-
-
-
 const colors = [
   "#1b2a41",
   "#3d2c5a",
