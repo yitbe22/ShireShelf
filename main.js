@@ -1,5 +1,8 @@
 const books = document.querySelectorAll(".book");
-const addBtn = document.getElementById("addBtn");
+const booksRow = document.getElementById("books-row");
+
+
+
 
 
 const colors = [
