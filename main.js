@@ -1,5 +1,13 @@
 const books = document.querySelectorAll(".book");
 const booksRow = document.getElementById("books-row");
+const addBtn = document.getElementById("addBtn");
+const bookModal = document.querySelector(".book-modal");
+const bookForm = document.getElementById("book-form");
+
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pagesInput = document.getElementById("pages");
+const readInput = document.getElementById("read");
 
 const colors = [
   "#1b2a41",
@@ -17,4 +25,17 @@ const colors = [
 books.forEach((book) => {
    book.style.background = colors[Math.floor(Math.random() * colors.length)];
 })
+
+addBtn.addEventListener("click", ()=>{
+    bookModal.hidden = false;
+});
+
+
+
+booksRow.innerHTML += `<div class="book">
+                <p class="title">${titleInput.value}</p>
+                <div class="bar"></div>
+                <h6 class="author">${authorInput.value}</h6>
+            </div>`;
+
 
