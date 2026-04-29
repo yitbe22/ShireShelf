@@ -6,6 +6,7 @@
 
 body{
   background-color: #9c6f12;
+  height: 100vh;
 }
 
 h1 {
@@ -35,6 +36,7 @@ h1 {
 
 .library {
   width: min(85vw, 1200px);
+  height: 100%;
   margin: 0 auto;
 
   display: flex;
@@ -69,24 +71,46 @@ h1 {
 
 
 .book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 35px;
   height: 120px;
   flex-shrink: 0;
   border-radius: 3px;
+  box-shadow:
+        inset -2px 0 4px rgba(0, 0, 0, 0.4),
+        inset 2px 0 4px rgba(255, 255, 255, 0.05);
+   transition: transform 0.5s;
+   cursor: pointer;
 }
 
 .book .title{
+    font-size: 14px;
+    font-weight: 500;
+    padding: 1.5px;
+    margin-bottom: auto;
+    font-size: inherit;
     writing-mode: vertical-lr;
+    
 }
 
 .book .bar{
+    display: block;
     width: 100%;
-    height: 2px;
+    height: 1px;
+    padding: 0;
+    border: 0;
     background-color: #d4af37;
 }
 
 .book .author{
+    font-weight: 700;
+    padding: 2px 4px;
+}
 
+.book:hover{
+  transform: scale(1.2);
 }
 
 
@@ -108,4 +132,15 @@ h1 {
 
   box-shadow:
     inset 0 -4px 6px rgba(0, 0, 0, 0.6);
+}
+
+#addBtn{
+  background: none;
+  position: fixed;
+  color: black;
+  font-size: 27px;
+  border: none;
+  bottom: 20%;
+  right: 5%;
+  
 }
