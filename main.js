@@ -22,20 +22,76 @@ const colors = [
   "#aab7c4"
 ];
 
-books.forEach((book) => {
-   book.style.background = colors[Math.floor(Math.random() * colors.length)];
-})
+const myLibrary = [];
 
-addBtn.addEventListener("click", ()=>{
-    bookModal.hidden = false;
+class Book{
+    constructor(title, author, pages, read){
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+}
+
+function addBookToLibrary(title, author, pages, read) {
+    const book = new Book(title, author, pages, read);
+    myLibrary.push(book);
+
+    renderBooks();
+}
+
+
+
+function renderBooks(){
+     booksRow.innerHTML = "";
+     
+    myLibrary.forEach((book) => {
+      const randColor =  colors[Math.floor(Math.random() * colors.length)];
+      const bookContainer = document.createElement("div");
+      bookContainer.classList.add("book");
+
+      bookContainer.style.background = randColor;
+
+    bookContainer.innerHTML = `
+      <p class="title">${book.title}</p>
+      <div class="bar"></div>
+      <h6 class="author">${book.author}</h6>
+    `;
+
+    booksRow.appendChild(bookContainer);
+
 });
 
+}
+
+bookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    addBookToLibrary(
+       titleInput.value,
+       authorInput.value,
+       pagesInput.value,
+       readInput.checked
+    );
+
+    bookModal.hidden = true;
+    bookForm.reset();
+})
+
+addBtn.addEventListener("click", ()=> {
+     console.log("clicked");
+     bookForm.reset();
+     bookModal.hidden = false;
+});
+
+console.log(myLibrary[0])
 
 
-booksRow.innerHTML += `<div class="book">
-                <p class="title">${titleInput.value}</p>
-                <div class="bar"></div>
-                <h6 class="author">${authorInput.value}</h6>
-            </div>`;
+
+
+
+
+
 
 
