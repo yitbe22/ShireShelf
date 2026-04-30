@@ -5,34 +5,74 @@
 }
 
 body{
-  background-color: #9c6f12;
   height: 100vh;
+  background: #D7B68C;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 15px 20px;
 }
 
 h1 {
+  display: inline-block;
   font-family: "Cinzel", serif; 
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  padding: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 
-  background: linear-gradient(
-    180deg,
-    #fff8c9 0%,
-    #f3d46b 25%,
-    #d4af37 50%,
-    #9c6f12 75%,
-    #5e4200 100%
-  );
+  color: #d4af37;
+font-size: 4rem;
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Golden glow */
+text-shadow: 
+  0 0 5px rgba(255, 255, 200, 0.8),
+  0 0 10px #f6e27a,
+  0 0 20px #d4af37,
+  0 0 40px #a67c00;
 
-  text-shadow:
-    0 1px 0 #fff2a6,
-    0 2px 4px rgba(0,0,0,0.45),
-    0 0 8px rgba(212,175,55,0.35);
+/* subtle pulse */
+animation: gold-glow 2s infinite alternate;
 }
+
+@keyframes gold-glow {
+  from {
+    opacity: 0.85;
+    text-shadow:
+      0 0 5px rgba(255, 255, 200, 0.6),
+      0 0 10px #d4af37,
+      0 0 20px #a67c00;
+  }
+
+  to {
+    opacity: 1;
+    text-shadow:
+      0 0 10px rgba(255, 255, 220, 0.9),
+      0 0 25px #f6e27a,
+      0 0 50px #b8860b;
+  }
+}
+    
+
+ #soundBtn{
+    color: black;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    margin-left: auto;
+    transition: transform 0.5s;
+  }
+
+  #soundBtn:hover{
+       transform: scale(1.2);
+  }
+
 
 .library {
   width: min(85vw, 1200px);
@@ -42,7 +82,7 @@ h1 {
   display: flex;
   flex-direction: column;
 
-  padding-top: 90px;
+  padding-top: 60px;
   gap: 60px;
 }
 
@@ -57,7 +97,7 @@ h1 {
 .books-row {
   display: flex;
   flex-wrap: wrap;
-  gap:75px 15px;
+  gap:92px 15px;
 
   position: absolute;
   bottom: 27px; 
@@ -69,9 +109,8 @@ h1 {
 }
 
 
-
-
 .book {
+  font-family: "Merriweather", serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,26 +161,38 @@ h1 {
   width: 100%;
   height: 27px;
 
-  background: linear-gradient(
-    180deg,
-    #6b4423 0%,
-    #3e2411 60%,
-    #2a160a 100%
-  );
+  background: url(/assets/wood.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   border-radius: 4px;
 
   box-shadow:
-    inset 0 -4px 6px rgba(0, 0, 0, 0.6);
+    inset 0 -8px 10px rgba(0, 0, 0, 0.6);
 }
 
 #addBtn{
   background: none;
   position: fixed;
-  color: black;
-  font-size: 27px;
   border: none;
-  bottom: 20%;
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  outline: none;
+  bottom: 10%;
   right: 5%;
+  transition: transform 0.5s;
   
 }
+
+#addBtn img{
+    width:50px;
+    height: 50px;
+   
+    
+}
+
+#addBtn:hover{
+  transform: scale(1.2);
+}
+

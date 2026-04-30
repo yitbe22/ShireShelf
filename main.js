@@ -1,3 +1,5 @@
+const sound = document.getElementById("bgSound");
+const soundBtn = document.getElementById("soundBtn");
 const books = document.querySelectorAll(".book");
 const booksRow = document.getElementById("books-row");
 const addBtn = document.getElementById("addBtn");
@@ -21,6 +23,21 @@ const colors = [
   "#4b5d6b",
   "#aab7c4"
 ];
+
+let isPlaying = false;
+
+soundBtn.addEventListener("click", () => {
+  if (!isPlaying) {
+    sound.play();
+    
+    soundBtn.innerHTML = `<i class="fa-brands fa-itunes-note"></i>`;
+  } else {
+    sound.pause();
+    soundBtn.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`;
+  }
+
+  isPlaying = !isPlaying;
+});
 
 const myLibrary = [];
 let editingBookId = null;
