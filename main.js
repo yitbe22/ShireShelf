@@ -23,6 +23,7 @@ const colors = [
 ];
 
 const myLibrary = [];
+let editingBookId = null;
 
 class Book{
     constructor(title, author, pages, read){
@@ -51,6 +52,7 @@ function renderBooks(){
       const bookContainer = document.createElement("div");
       bookContainer.classList.add("book");
 
+      bookContainer.dataset.id = book.id;
       bookContainer.style.background = randColor;
 
     bookContainer.innerHTML = `
@@ -60,6 +62,7 @@ function renderBooks(){
     `;
 
     booksRow.appendChild(bookContainer);
+    bookContainer.addEventListener("click", openForm);
 
 });
 
@@ -68,24 +71,57 @@ function renderBooks(){
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    if (editingBookId) {
+    // Edit existing book
+    const book = myLibrary.find(b => b.id === editingBookId);
+    if (book) {
+      book.title = titleInput.value;
+      book.author = authorInput.value;
+      book.pages = pagesInput.value;
+      book.read = readInput.checked;
+    }
+    editingBookId = null;
+  } else {
+    // Add new book
     addBookToLibrary(
-       titleInput.value,
-       authorInput.value,
-       pagesInput.value,
-       readInput.checked
+      titleInput.value,
+      authorInput.value,
+      pagesInput.value,
+      readInput.checked
     );
-
-    bookModal.hidden = true;
+  }
+    bookModal.hidden = false;
     bookForm.reset();
+
+    renderBooks();
 })
 
 addBtn.addEventListener("click", ()=> {
-     console.log("clicked");
+     editingBookId = null;
      bookForm.reset();
      bookModal.hidden = false;
 });
 
-console.log(myLibrary[0])
+function openForm(e){
+      
+      const bookId = e.currentTarget.dataset.id;
+      const book = myLibrary.find(b => b.id === bookId);
+      if(book){
+           editingBookId = bookId;
+           titleInput.value = book.title;
+           authorInput.value = book.author;
+           pagesInput.value = book.pages;
+           readInput.checked = book.read;
+           bookModal.hidden = false;
+      }
+     
+
+}
+
+
+
+
+
 
 
 
