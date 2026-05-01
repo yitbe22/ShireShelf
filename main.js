@@ -12,17 +12,31 @@ const pagesInput = document.getElementById("pages");
 const readInput = document.getElementById("read");
 
 const colors = [
-  "#1b2a41",
-  "#3d2c5a",
-  "#1f4d3a",
-  "#1e5f6f",
-  "#6b2d2d",
-  "#3c3c3c",
-  "#b08d57",
-  "#2a2a72",
-  "#4b5d6b",
-  "#aab7c4"
+  "#2e3d4f", 
+  "#4a3a5c", 
+  "#304d3f", 
+  "#2f5a62", 
+  "#5e3535", 
+  "#4a4640",
+  "#8a7252", 
+  "#353560", 
+  "#4a5660", 
+  "#8e9ba4", 
 ];
+
+function applyBookStyle(book, color) {
+  book.style.background = `linear-gradient(to bottom, ${color}, ${darken(color, 35)})`;
+}
+
+function darken(color, amount = 30) {
+  return "#" + color.replace("#", "")
+    .match(/.{2}/g)
+    .map(c => {
+      const v = Math.max(0, parseInt(c, 16) - amount);
+      return v.toString(16).padStart(2, "0");
+    })
+    .join("");
+}
 
 let isPlaying = false;
 
@@ -70,7 +84,7 @@ function renderBooks(){
       bookContainer.classList.add("book");
 
       bookContainer.dataset.id = book.id;
-      bookContainer.style.background = randColor;
+      applyBookStyle(bookContainer, randColor);
 
     bookContainer.innerHTML = `
       <p class="title">${book.title}</p>
