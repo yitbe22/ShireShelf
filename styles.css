@@ -6,7 +6,8 @@
 
 body{
   height: 100vh;
-  background: #D7B68C;
+  background: url(/assets/bg_img.png) center / cover no-repeat;
+
 }
 
 .navbar{
@@ -27,7 +28,7 @@ h1 {
   transform: translateX(-50%);
 
   color: #d4af37;
-font-size: 4rem;
+
 
 /* Golden glow */
 text-shadow: 
@@ -60,7 +61,7 @@ animation: gold-glow 2s infinite alternate;
     
 
  #soundBtn{
-    color: black;
+    color: #ffff;
     background: none;
     border: none;
     outline: none;
@@ -173,6 +174,7 @@ animation: gold-glow 2s infinite alternate;
 }
 
 #addBtn{
+  color: #ffff;
   background: none;
   position: fixed;
   border: none;
