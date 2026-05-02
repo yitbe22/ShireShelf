@@ -5,6 +5,8 @@ const booksRow = document.getElementById("books-row");
 const addBtn = document.getElementById("addBtn");
 const bookModal = document.querySelector(".book-modal");
 const bookForm = document.getElementById("book-form");
+const modalOverlay = document.querySelector(".modal-overlay");
+
 
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
@@ -53,7 +55,7 @@ soundBtn.addEventListener("click", () => {
   isPlaying = !isPlaying;
 });
 
-const myLibrary = [];
+
 let editingBookId = null;
 
 class Book{
@@ -65,6 +67,13 @@ class Book{
         this.read = read;
     }
 }
+
+const myLibrary = [
+   new Book("The Fellowship of the Ring", "J.R.R.", 423, true),
+   new Book("The Hobbit", "J.R.R.", 310, false)
+];
+
+
 
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
@@ -121,7 +130,7 @@ bookForm.addEventListener("submit", (e) => {
       readInput.checked
     );
   }
-    bookModal.hidden = false;
+    modalOverlay.classList.remove("active");
     bookForm.reset();
 
     renderBooks();
@@ -130,7 +139,7 @@ bookForm.addEventListener("submit", (e) => {
 addBtn.addEventListener("click", ()=> {
      editingBookId = null;
      bookForm.reset();
-     bookModal.hidden = false;
+     modalOverlay.classList.add("active");
 });
 
 function openForm(e){
@@ -143,11 +152,18 @@ function openForm(e){
            authorInput.value = book.author;
            pagesInput.value = book.pages;
            readInput.checked = book.read;
-           bookModal.hidden = false;
-      }
-     
+           modalOverlay.classList.add("active");
+      }  
 
 }
+
+modalOverlay.addEventListener("click", (e) => {
+  if (e.target === modalOverlay) {
+     modalOverlay.classList.remove("active");
+  }
+});
+
+renderBooks();
 
 
 

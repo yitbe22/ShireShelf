@@ -5,9 +5,8 @@
 }
 
 body{
-  height: 100vh;
-  background: url(./assets/bg_img.png) center / cover no-repeat;
-
+  min-height: 100vh;
+  background: url(assets/bg_img3.png) center/cover no-repeat;
 }
 
 .navbar{
@@ -20,7 +19,7 @@ body{
 h1 {
   display: inline-block;
   font-family: "Cinzel", serif; 
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
   position: absolute;
@@ -65,7 +64,7 @@ animation: gold-glow 2s infinite alternate;
     background: none;
     border: none;
     outline: none;
-    font-size: 30px;
+    font-size: 20px;
     margin-left: auto;
     transition: transform 0.5s;
   }
@@ -73,6 +72,59 @@ animation: gold-glow 2s infinite alternate;
   #soundBtn:hover{
        transform: scale(1.2);
   }
+
+.modal-overlay{
+   display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  z-index:100;
+}
+
+.modal-overlay.active{
+   display: flex;
+}
+
+.book-modal{
+  background: url(assets/book_cover.jpg) center/cover no-repeat; 
+  width: 280px;
+  height: 440px;
+  border-radius: 6px;
+
+  padding: 20px;
+
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.5),   
+    inset 0 0 10px rgba(0,0,0,0.4); 
+
+  border: 2px solid #3e2a1f;
+}
+
+.book-modal #book-form{
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.book-modal input,
+.book-modal button {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  width: 80%;
+}
+
+.book-modal button {
+  cursor: pointer;
+}
+
 
 
 .library {
@@ -104,7 +156,7 @@ animation: gold-glow 2s infinite alternate;
   bottom: 27px; 
 
   width: 100%;
-  height: 120px;
+  height: 140px;
 
   align-items: flex-end;
 }
@@ -112,11 +164,13 @@ animation: gold-glow 2s infinite alternate;
 
 .book {
   font-family: "Merriweather", serif;
+  font-size: 12px;
+  color: #a67c00;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 35px;
-  height: 120px;
+  width: 40px;
+  height: 130px;
   flex-shrink: 0;
   border-radius: 3px;
   box-shadow:
@@ -127,8 +181,7 @@ animation: gold-glow 2s infinite alternate;
 }
 
 .book .title{
-    font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 1.5px;
     margin-bottom: auto;
     font-size: inherit;
@@ -139,7 +192,7 @@ animation: gold-glow 2s infinite alternate;
 .book .bar{
     display: block;
     width: 100%;
-    height: 1px;
+    height: 1.3px;
     padding: 0;
     border: 0;
     background-color: #d4af37;
@@ -162,7 +215,7 @@ animation: gold-glow 2s infinite alternate;
   width: 100%;
   height: 27px;
 
-  background: url(./assets/wood.jpg);
+  background: url(assets/wood.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -198,3 +251,25 @@ animation: gold-glow 2s infinite alternate;
   transform: scale(1.2);
 }
 
+/* Tablet */
+@media (min-width: 601px) {
+  body {
+    background-image: url('assets/bg_img2.png');
+  }
+
+  h1{
+     font-size: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  body {
+    background-image: url('assets/bg_img.png');
+
+  }
+
+  h1{
+    font-size: 3rem;
+  }
+}

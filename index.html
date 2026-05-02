@@ -19,7 +19,8 @@
 </nav>
     <div class="library">
 
-        <div class="book-modal"  hidden>
+        <div class="modal-overlay" hidden>
+        <div class="book-modal">
         <form id="book-form">
             <input type="text" id="title" placeholder="Title">
             <input type="text" id="author" placeholder="Author">
@@ -33,6 +34,7 @@
             <button type="submit" id="submit">Save Book</button>
         </form>
     </div>
+    </div>
         
   <div class="shelf-container">
         <div class="books-row" id="books-row">
@@ -41,7 +43,13 @@
         <div class="shelf"></div>
   </div>
   <div class="shelf-container">
-        <div class="books-row" id="books-row">
+        <div class="books-row" >
+             <!--Book is inserted here-->
+        </div>
+        <div class="shelf"></div>
+  </div>
+  <div class="shelf-container">
+        <div class="books-row">
              <!--Book is inserted here-->
         </div>
         <div class="shelf"></div>
