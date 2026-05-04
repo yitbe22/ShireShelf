@@ -22,16 +22,21 @@
         <div class="modal-overlay" hidden>
         <div class="book-modal">
         <form id="book-form">
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" id="author" placeholder="Author">
-            <input type="number" id="pages" placeholder="Pages">
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" id="author" placeholder="Author" required>
+            <input type="number" id="pages" placeholder="Pages" required>
 
-            <label>
-              <input type="checkbox" id="read">
-              Read
+            <label class="checkBox">
+                <span class="box">
+                    <input id="read" type="checkbox" required>
+                    <div class="transition"></div>
+                </span>
+                <span class="label-text">Read</span>
             </label>
 
             <button type="submit" id="submit">Save Book</button>
+            <button type="button" id="del"><i class="fa-regular fa-trash-can"></i></button>
+            
         </form>
     </div>
     </div>
@@ -44,13 +49,11 @@
   </div>
   <div class="shelf-container">
         <div class="books-row" >
-             <!--Book is inserted here-->
         </div>
         <div class="shelf"></div>
   </div>
   <div class="shelf-container">
         <div class="books-row">
-             <!--Book is inserted here-->
         </div>
         <div class="shelf"></div>
   </div>

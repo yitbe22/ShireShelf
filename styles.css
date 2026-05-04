@@ -1,3 +1,10 @@
+:root{
+  --golden: #d4af37;
+  --checkbox: #e8b200;
+  --main-font: "Cinzel", serif;
+  --font-body: "Merriweather", serif;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -18,7 +25,7 @@ body{
 
 h1 {
   display: inline-block;
-  font-family: "Cinzel", serif; 
+  font-family: var(--main-font); 
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
@@ -27,38 +34,9 @@ h1 {
   transform: translateX(-50%);
 
   color: #d4af37;
-
-
-/* Golden glow */
-text-shadow: 
-  0 0 5px rgba(255, 255, 200, 0.8),
-  0 0 10px #f6e27a,
-  0 0 20px #d4af37,
-  0 0 40px #a67c00;
-
-/* subtle pulse */
-animation: gold-glow 2s infinite alternate;
-}
-
-@keyframes gold-glow {
-  from {
-    opacity: 0.85;
-    text-shadow:
-      0 0 5px rgba(255, 255, 200, 0.6),
-      0 0 10px #d4af37,
-      0 0 20px #a67c00;
-  }
-
-  to {
-    opacity: 1;
-    text-shadow:
-      0 0 10px rgba(255, 255, 220, 0.9),
-      0 0 25px #f6e27a,
-      0 0 50px #b8860b;
-  }
 }
     
-
+  
  #soundBtn{
     color: #ffff;
     background: none;
@@ -113,13 +91,110 @@ animation: gold-glow 2s infinite alternate;
 
 }
 
-.book-modal input,
-.book-modal button {
+.book-modal input {
+  font-family: var(--font-body);
+  color: var(--golden);
+  font-size: 14px;
   padding: 5px;
   border: none;
-  border-radius: 4px;
-  width: 80%;
+  text-align: center;
+  background: none;
+  border-bottom: 1.5px solid #180705;
+  transition: border-bottom 0.5s;
 }
+
+.book-modal input:focus{
+  outline: none;
+  border-bottom: 1.5px solid var(--golden);
+}
+
+.book-modal [type="number"] {
+  -moz-appearance: textfield;
+}
+
+.book-modal input[type="number"]::-webkit-outer-spin-button,
+.book-modal input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.checkBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.box {
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--golden);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.label-text {
+  font-size: 13px;
+  font-weight: 200;
+  color: #fff;
+  font-family: var(--main-font);
+}
+
+.box div {
+  width: 50px;
+  height: 50px;
+  background-color: var(--golden); 
+  position: absolute;
+  top: -52px;
+  left: -52px;
+  transform: rotate(45deg);
+  z-index: 100;
+}
+
+.box input[type="checkbox"]:checked + div {
+  left: -10px;
+  top: -10px;
+}
+
+.box input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.transition {
+  transition: 300ms ease;
+}
+
+.book-modal #submit{
+    padding: 5px;
+    font-family: var(--main-font);
+    border: none;
+    border-radius: 4px;
+    background-color: var(--golden);
+}
+
+.book-modal #del{
+  color: #ff1616;
+  font-size: 16px;
+  border: none;
+  background: none;
+  transition: transform 0.5s;
+}
+
+.book-modal #del:hover{
+   transform: scale(1.2);
+}
+
+
+
+
+
+
 
 .book-modal button {
   cursor: pointer;
@@ -163,9 +238,9 @@ animation: gold-glow 2s infinite alternate;
 
 
 .book {
-  font-family: "Merriweather", serif;
+  font-family: var(--font-body);
   font-size: 12px;
-  color: #a67c00;
+  color: var(--golden);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,7 +270,7 @@ animation: gold-glow 2s infinite alternate;
     height: 1.3px;
     padding: 0;
     border: 0;
-    background-color: #d4af37;
+    background-color: var(--golden);
 }
 
 .book .author{
@@ -231,7 +306,7 @@ animation: gold-glow 2s infinite alternate;
   background: none;
   position: fixed;
   border: none;
-  font-family: "Cinzel", serif;
+  font-family: var(--font-body);
   font-size: 30px;
   outline: none;
   bottom: 10%;

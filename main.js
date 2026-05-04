@@ -6,6 +6,7 @@ const addBtn = document.getElementById("addBtn");
 const bookModal = document.querySelector(".book-modal");
 const bookForm = document.getElementById("book-form");
 const modalOverlay = document.querySelector(".modal-overlay");
+const del = document.getElementById("del");
 
 
 const titleInput = document.getElementById("title");
@@ -68,7 +69,7 @@ class Book{
     }
 }
 
-const myLibrary = [
+let myLibrary = [
    new Book("The Fellowship of the Ring", "J.R.R.", 423, true),
    new Book("The Hobbit", "J.R.R.", 310, false)
 ];
@@ -140,10 +141,10 @@ addBtn.addEventListener("click", ()=> {
      editingBookId = null;
      bookForm.reset();
      modalOverlay.classList.add("active");
+     del.style.display = "none";
 });
 
 function openForm(e){
-      
       const bookId = e.currentTarget.dataset.id;
       const book = myLibrary.find(b => b.id === bookId);
       if(book){
@@ -153,6 +154,8 @@ function openForm(e){
            pagesInput.value = book.pages;
            readInput.checked = book.read;
            modalOverlay.classList.add("active");
+           del.style.display = "block";
+
       }  
 
 }
@@ -161,6 +164,20 @@ modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) {
      modalOverlay.classList.remove("active");
   }
+});
+
+function deleteBook(){
+   if (!editingBookId) return;
+    myLibrary = myLibrary.filter(b => b.id!==editingBookId);
+    editingBookId = null;
+    bookForm.reset();
+    modalOverlay.classList.remove("active");
+    renderBooks();
+}
+
+del.addEventListener("click", (e)=>{
+    e.preventDefault();
+    deleteBook();
 });
 
 renderBooks();
