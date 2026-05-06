@@ -70,8 +70,11 @@ class Book{
 }
 
 let myLibrary = [
-   new Book("The Fellowship of the Ring", "J.R.R.", 423, true),
-   new Book("The Hobbit", "J.R.R.", 310, false)
+    new Book("The Fellowship of the Ring", "J.R.R.", 423, true),
+    new Book("The Hobbit", "J.R.R.", 310, false),
+    new Book("1984", "George Orwell", 328, true),
+    new Book("Atomic Habits", "James Clear", 320, true),
+    new Book("The Alchemist", "Paulo Coelho", 208, false)
 ];
 
 
